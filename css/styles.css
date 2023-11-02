@@ -610,10 +610,10 @@ justify-content: center;
 align-items: center;
 min-width: 165px;
 height: 40px;
-font-family: Roboto;
+font-family: "Roboto", sans-serif;
 font-size: 16px;
 font-weight: 500;
-line-height: 1,5; /* 150% */
+line-height: 1.5; /* 150% */
 letter-spacing: 0.04em; 
 color: #ffffff;
 cursor: pointer;
