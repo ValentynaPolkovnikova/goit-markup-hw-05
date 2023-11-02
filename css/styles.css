@@ -551,7 +551,14 @@ background-color: #31d0aa;
 .social-icon-item {
 fill: #f4f4fd;
 }
-
+.footer-text-label {
+color: #ffffff;
+font-size: 16px;
+font-weight: 500;
+line-height: 1.5;
+letter-spacing: 0.02em; /*визначення відстані між літерами (150%) */ 
+margin-bottom: 16px;    
+}
 .footer-subscribe {
 display: flex;
 gap: 24px;
@@ -784,7 +791,10 @@ border-color: #4D5AE5;
 outline-color: transparent;
 outline-offset: 2px;    
 }
-
+.modal-section-last {
+margin-bottom: 16px;
+width: 360px;    
+}
 .modal-checkbox {
 margin-bottom: 24px;    
 }
