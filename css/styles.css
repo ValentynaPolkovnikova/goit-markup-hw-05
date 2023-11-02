@@ -643,7 +643,7 @@ z-index: 999999; /*щоб більше ніякий фіксований еле�
 opacity: 0; /*робимо backdrop прозорим*/
 visibility: hidden; /*робимо backdrop не відчутним до курсору миші, взагалі прихований*/
 pointer-events: none; /*робимо backdrop не відчутним до курсору миші, взагалі прихований*/
-transition: opacity 250ms linear, visibility 250ms linear;
+transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .backdrop.is-open {
 opacity: 1;
@@ -657,26 +657,41 @@ top: 50%; /*вирівнюємо по центру*/
 left: 50%;
 transform: translate(-50%, -50%);
 width: 408px;
-height: 584px;
+min-height: 584px;
 flex-shrink: 0; 
 border-radius: 4px;
 background: #FCFCFC; 
 padding: 24px;
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close-btn {
+display: flex; /*для подальшої можливості зміни розташування дочірнього елемента*/    
 position: absolute;
-top: 32px;
-right: 32px;
+top: 24px;
+right: 24px;
 border: none;
 padding: 0px;
 background-color: transparent;
 line-height: 0;
 stroke: #2E2F42;
-transition: stroke 250ms linear;
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+border-radius: 50%; 
+
+align-items: center; /*для вирівнювання дочірнього елемента по вертикалі*/
+justify-content: center; /*для вирівнювання дочірнього елемента по горизонталі*/
+background-color: #e7e9fc;
+border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .modal-close-btn:hover,
 .modal-close-btn:focus {
-stroke: #4d5ae5;
+background-color: #404bbf; 
+fill: #ffffff;
+}
+.modal-close-btn-icon {
+width: 8px;   
+height: 8px;
+transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .modal-text {
 color: #2E2F42;
@@ -690,17 +705,20 @@ margin-top: 24px;
 margin-bottom: 16px;
 }
 /* ============= MODAL FORM ============= */
-
+.modal-form {
+padding: 72px 24px 24px 24px;    
+}
 .modal-section {
 margin-bottom: 8px;
-width: 360px;   
+width: 360px;
+margin-bottom: 16px;   
 }
 .modal-section-label {
 display: block;
 color: #8E8F99;
 font-size: 12px;
 font-weight: 400;
-line-height: 1.17px; /* 116.667% */
+line-height: 1.17; /* 116.667% */
 letter-spacing: 0.04em;
 margin-bottom: 4px;
 }
@@ -711,6 +729,9 @@ margin-top: 4px;
 border: 1px solid rgba(46, 47, 66, 0.40);
 border-radius: 4px; 
 padding-left: 38px;
+background-color: transparent; /*встановлює колір фону елемента*/
+outline: transparent; /*для встановлення стилю контуру для елемента*/
+transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .modal-section-input:focus {
 border-color: #4d5ae5;
@@ -723,40 +744,38 @@ top: 50%;
 left: 16px;
 fill: none;
 transform: translateY(-50%);
-stroke: #2E2F42;
-transition: stroke 250ms linear;    
+color: #2E2F42;
+transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .modal-section-date {
 position: relative;
 }
 .modal-section-input:focus + .modal-section-icon {
-stroke: #4d5ae5;    
+fill: #4D5AE5;   
 }
 .modal-section-comment {
 width: 100%;
 height: 120px;
 
-color: rgba(46, 47, 66, 0.40);
+color: rgba(46, 47, 66, 0.4);
 font-size: 12px;
 font-weight: 400;
-line-height: 1.17px; /* 116.667% */
+line-height: 1.17; /* 116.667% */
 letter-spacing: 0.04em;
 border-radius: 4px;
 border: 1px solid rgba(46, 47, 66, 0.40);
-
+background-color: transparent;
+outline: transparent;
 resize: none; /*прибираємо кутовий повзунок*/
-padding: 22px 24px;
-color: rgba(64, 64, 64, 0.3);
-transition: border-color 250ms linear;
-padding-top: 8px;
-padding-left: 16px;
+transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+padding: 8px 16px; 
 margin-top: 4px;    
 }
 .modal-section-comment::placeholder {
 color: rgba(64, 64, 64, 0.3);    
 }
-.modal-section-comment:hover {
-border-color: #4d5ae5;
+.modal-section-comment:hover, .modal-section-comment:focus {
+border-color: #4D5AE5;
 outline-color: transparent;
 outline-offset: 2px;    
 }
@@ -770,11 +789,13 @@ justify-content: center;
 align-items: center;
 width: 16px;
 height: 16px;
-/*border-radius: 1px;*/
+border-radius: 2px;
 border: 1px solid rgba(46, 47, 66, 0.40);
 cursor: pointer;
 fill: transparent; /*приховуємо галочку - робимо її прозорою*/
 margin-right: 8px;    
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+            fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-checkbox-label {
 color: var(--LIGHT-SLATE, #8E8F99);
@@ -793,7 +814,8 @@ text-decoration-line: underline;
 }
 .modal-checkbox-form:checked + .modal-checkbox-label .modal-checkbox-check {
 background-color: #404BBF;
-fill: #ffffff;
+fill: #F4F4FD;
+border: none; 
 }
 .modal-checkbox-form:focus + .modal-checkbox-label .modal-checkbox-check {
 background-color: #404BBF;
