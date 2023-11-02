@@ -554,16 +554,15 @@ fill: #f4f4fd;
 
 .footer-subscribe {
 display: flex;
+gap: 24px;
 flex-direction: column;
 margin-left: 96px;
 
 }
 .subscribe-label {
-  display: block;
-  color: #ffffff;
-font-family: Roboto;
+display: block;
+color: #ffffff;
 font-size: 16px;
-font-style: normal;
 font-weight: 500;
 line-height: 1.5;
 letter-spacing: 0.02em; /*визначення відстані між літерами (150%) */ 
@@ -579,14 +578,18 @@ height: 40px;
 border-radius: 4px;
 border: 1px solid #ffffff;
 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-
-
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); /*встановлює тінь на елемент*/
+background-color: transparent;
+color: #ffffff;
 font-family: Roboto;
 font-size: 12px;
-font-style: normal;
 font-weight: 400;
-line-height: 0.04; /* 200% */
-letter-spacing: 0.48px;
+line-height: 1.5;
+letter-spacing: 0.04em;
+padding-left: 16px;
+}
+.subscribe-email::placeholder {
+color: #ffffff;
 }
 .footer-subscribe-btn {
 display: flex;
@@ -595,27 +598,25 @@ justify-content: space-between;
 margin-left: 24px;
 }
 .subscribe-btn {
-display: inline-flex;
-padding: 8px 24px;
+display: flex; /*для подальшої можливості зміни розташування дочірніх елементів*/
 justify-content: center;
 align-items: center;
-width: 24px;
-height: 24px;
-border-radius: 4px;
-border: none;
-margin-left: auto;
-margin-right: auto;
-cursor: pointer;
-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /*для плавної зміни кольору фону елемента*/
-background: #4D5AE5;    
-color: #ffffff;
-text-align: center;
+min-width: 165px;
+height: 40px;
 font-family: Roboto;
 font-size: 16px;
-font-style: normal;
 font-weight: 500;
 line-height: 1,5; /* 150% */
 letter-spacing: 0.04em; 
+color: #ffffff;
+cursor: pointer;
+background-color: #4D5AE5;
+border: none;
+border-radius: 4px;
+/*margin-left: auto;
+margin-right: auto;
+text-align: center;
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /*для плавної зміни кольору фону елемента*/
 }
 
 .subscribe-btn:hover,
@@ -624,10 +625,11 @@ background-color: #404bbf;
 border: none;
 }
 .footer-subscribe-icon {
+margin-left: 16px;
 flex-shrink: 0;
 width: 24px;
 height: 24px; 
-margin-left: 16px;
+
 fill: #ffffff;
 }
 
@@ -671,6 +673,8 @@ display: flex; /*для подальшої можливості зміни ро�
 position: absolute;
 top: 24px;
 right: 24px;
+width: 24px;
+height: 24px;
 border: none;
 padding: 0px;
 background-color: transparent;
@@ -688,6 +692,7 @@ border: 1px solid rgba(0, 0, 0, 0.1);
 .modal-close-btn:focus {
 background-color: #404bbf; 
 fill: #ffffff;
+border: none;
 }
 .modal-close-btn-icon {
 width: 8px;   
@@ -712,7 +717,6 @@ padding: 72px 24px 24px 24px;
 .modal-section {
 margin-bottom: 8px;
 width: 360px;
-margin-bottom: 16px;  
 }
 .modal-section-label {
 display: block;
