@@ -824,7 +824,7 @@ line-height: 1.33;
 letter-spacing: 0.04em;
 text-decoration-line: underline;     
 }
-.modal-checkbox-check {
+.modal-checkbox-check:checked {
 fill: #ffffff;  
 }
 .modal-checkbox-form:checked + .modal-checkbox-label .modal-checkbox-check {
