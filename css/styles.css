@@ -789,16 +789,17 @@ justify-content: center;
 align-items: center;
 width: 16px;
 height: 16px;
+fill: #f4f4fd;
 border-radius: 2px;
 border: 1px solid rgba(46, 47, 66, 0.40);
 cursor: pointer;
 fill: transparent; /*приховуємо галочку - робимо її прозорою*/
-margin-right: 8px;    
+margin-right: 8px;  
 transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), 
             fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-checkbox-label {
-color: var(--LIGHT-SLATE, #8E8F99);
+color: #8E8F99;
 font-size: 12px;
 font-weight: 400;
 line-height: 1.17; /* 116.667% */
@@ -812,17 +813,16 @@ line-height: 1.33;
 letter-spacing: 0.04em;
 text-decoration-line: underline;     
 }
-.modal-checkbox-check:checked {
-fill: #ffffff;  
-}
+
 .modal-checkbox-form:checked + .modal-checkbox-label .modal-checkbox-check {
-background-color: #404BBF;
-fill: #F4F4FD;
+background-color: #4D5AE5;
+fill: #ffffff;
 border: none; 
 }
+
 .modal-checkbox-form:focus + .modal-checkbox-label .modal-checkbox-check {
-background-color: #404BBF;
-fill: #ffffff;
+border:#4D5AE5;
+border-radius: 4px;
 outline: 2px solid rgba(0, 0, 255, 0.5);
 }
 
